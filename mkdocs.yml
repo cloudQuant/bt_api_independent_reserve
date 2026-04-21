@@ -1,0 +1,35 @@
+site_name: "INDEPENDENT_RESERVE Documentation"
+site_description: "INDEPENDENT_RESERVE plugin for bt_api"
+site_author: cloudQuant
+site_url: https://bt-api-independent-reserve.readthedocs.io/
+
+repo_name: cloudQuant/bt_api_independent_reserve
+repo_url: https://github.com/cloudQuant/bt_api_independent_reserve
+
+theme:
+  name: material
+  language: en
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+
+nav:
+  - Home: index.md
+
+markdown_extensions:
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - admonition
+  - tables
