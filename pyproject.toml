@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "bt_api_independent_reserve"
-version = "0.1.0"
+version = "0.1.1"
 description = "Independent Reserve exchange plugin for bt_api"
 readme = "README.md"
 requires-python = ">=3.9"
@@ -18,3 +18,13 @@ dev = ["pytest"]
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/bt_api_independent_reserve"]
+
+[tool.ruff]
+line-length = 120
+
+[tool.ruff.lint]
+select = ["I", "UP", "E", "F", "W", "TRY003", "TC"]
+ignore = [
+    "TC002",
+    "TRY003",
+]
