@@ -34,9 +34,7 @@ class IndependentReserveOrderData(OrderData):
 
     def init_data(self) -> IndependentReserveOrderData:
         if not self.has_been_json_encoded:
-            self.order_data = (
-                json.loads(self.order_info) if isinstance(self.order_info, str) else {}
-            )
+            self.order_data = json.loads(self.order_info) if isinstance(self.order_info, str) else {}
             self.has_been_json_encoded = True
         if self.has_been_init_data:
             return self
