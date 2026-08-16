@@ -11,9 +11,18 @@ pip install bt_api_independent_reserve
 ```
 
 ```python
-from bt_api_independent_reserve import IndependentReserveApi
-feed = IndependentReserveApi(api_key="your_key", secret="your_secret")
-ticker = feed.get_ticker("BTCUSDT")
+from bt_api import BtApi
+
+api = BtApi(
+    exchange_kwargs={
+        "INDEPENDENT_RESERVE___SPOT": {
+            "api_key": "your_api_key",
+            "secret": "your_secret",
+        }
+    }
+)
+ticker = api.get_tick("INDEPENDENT_RESERVE___SPOT", "BTCUSDT")
+print(ticker)
 ```
 
 ## 中文
@@ -27,9 +36,18 @@ pip install bt_api_independent_reserve
 ```
 
 ```python
-from bt_api_independent_reserve import IndependentReserveApi
-feed = IndependentReserveApi(api_key="your_key", secret="your_secret")
-ticker = feed.get_ticker("BTCUSDT")
+from bt_api import BtApi
+
+api = BtApi(
+    exchange_kwargs={
+        "INDEPENDENT_RESERVE___SPOT": {
+            "api_key": "your_api_key",
+            "secret": "your_secret",
+        }
+    }
+)
+ticker = api.get_tick("INDEPENDENT_RESERVE___SPOT", "BTCUSDT")
+print(ticker)
 ```
 
 ## API Reference

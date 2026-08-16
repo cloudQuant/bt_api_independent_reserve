@@ -13,9 +13,5 @@ from bt_api_independent_reserve.feeds.live_independent_reserve.spot import (
 def register_independent_reserve(registry: type[ExchangeRegistry]) -> None:
     """register_independent_reserve function"""
     registry.register_feed("INDEPENDENT_RESERVE___SPOT", IndependentReserveRequestDataSpot)
-    registry.register_exchange_data(
-        "INDEPENDENT_RESERVE___SPOT", IndependentReserveExchangeDataSpot
-    )
-    registry.register_balance_handler(
-        "INDEPENDENT_RESERVE___SPOT", _independent_reserve_balance_handler
-    )
+    registry.register_exchange_data("INDEPENDENT_RESERVE___SPOT", IndependentReserveExchangeDataSpot)
+    registry.register_balance_handler("INDEPENDENT_RESERVE___SPOT", _independent_reserve_balance_handler)

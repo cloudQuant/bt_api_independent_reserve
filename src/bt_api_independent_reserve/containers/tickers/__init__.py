@@ -39,12 +39,10 @@ class IndependentReserveTickerData(TickerData):
         self.low: float | None = None
         self.has_been_init_data = False
 
-    def init_data(self) -> "IndependentReserveTickerData":
+    def init_data(self) -> IndependentReserveTickerData:
         """init_data method"""
         if not self.has_been_json_encoded:
-            self.ticker_data = (
-                json.loads(self.ticker_info) if isinstance(self.ticker_info, str) else {}
-            )
+            self.ticker_data = json.loads(self.ticker_info) if isinstance(self.ticker_info, str) else {}
             self.has_been_json_encoded = True
         if self.has_been_init_data:
             return self

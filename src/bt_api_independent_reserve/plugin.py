@@ -9,9 +9,7 @@ from bt_api_independent_reserve import __version__
 from bt_api_independent_reserve.registry_registration import register_independent_reserve
 
 
-def register_plugin(
-    registry: type[ExchangeRegistry], runtime_factory: type[GatewayRuntimeRegistrar]
-) -> PluginInfo:
+def register_plugin(registry: type[ExchangeRegistry], runtime_factory: type[GatewayRuntimeRegistrar]) -> PluginInfo:
     """register_plugin function"""
     register_independent_reserve(registry)
     return PluginInfo(
