@@ -1,3 +1,4 @@
+"""Module documentation"""
 from __future__ import annotations
 
 import hashlib
@@ -13,6 +14,7 @@ from bt_api_independent_reserve.exchange_data import IndependentReserveExchangeD
 
 
 class IndependentReserveRequestData(Feed):
+    """Class IndependentReserveRequestData"""
     @classmethod
     def _capabilities(cls) -> set[Capability]:
         return {
@@ -28,6 +30,7 @@ class IndependentReserveRequestData(Feed):
         }
 
     def __init__(self, data_queue: Any = None, **kwargs: Any) -> None:
+        """__init__ method"""
         super().__init__(data_queue, **kwargs)
         self.data_queue = data_queue
         self._api_key = kwargs.get("public_key") or kwargs.get("api_key") or ""
@@ -40,6 +43,7 @@ class IndependentReserveRequestData(Feed):
 
     @property
     def api_key(self):
+        """api_key method"""
         return self._api_key
 
     def _generate_signature(self, url, nonce, params=None):
@@ -77,6 +81,7 @@ class IndependentReserveRequestData(Feed):
         return body
 
     def push_data_to_queue(self, data):
+        """push_data_to_queue method"""
         if self.data_queue is not None:
             self.data_queue.put(data)
 
@@ -88,6 +93,7 @@ class IndependentReserveRequestData(Feed):
         extra_data: dict[str, Any] | None = None,
         timeout=10,
     ):
+        """request method"""
         if params is None:
             params = {}
         method, endpoint = path.split(" ", 1)
@@ -115,6 +121,7 @@ class IndependentReserveRequestData(Feed):
         extra_data: dict[str, Any] | None = None,
         timeout=5,
     ):
+        """async_request method"""
         if params is None:
             params = {}
         method, endpoint = path.split(" ", 1)
@@ -135,6 +142,7 @@ class IndependentReserveRequestData(Feed):
         return RequestData(res, extra_data or {})
 
     def async_callback(self, request_data):
+        """async_callback method"""
         if request_data is not None:
             self.push_data_to_queue(request_data)
 

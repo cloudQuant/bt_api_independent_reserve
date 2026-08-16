@@ -1,3 +1,4 @@
+"""Module-level docstring."""
 from __future__ import annotations
 
 from typing import Any
@@ -9,18 +10,22 @@ from bt_api_independent_reserve.feeds.live_independent_reserve.request_base impo
 
 
 class IndependentReserveRequestDataSpot(IndependentReserveRequestData):
+    """Class IndependentReserveRequestDataSpot"""
     def __init__(self, data_queue: Any = None, **kwargs: Any) -> None:
+        """__init__ method"""
         kwargs.setdefault("exchange_name", "INDEPENDENT_RESERVE___SPOT")
         kwargs.setdefault("asset_type", "SPOT")
         super().__init__(data_queue, **kwargs)
 
     def get_tick(self, symbol: Any, extra_data: Any = None, **kwargs: Any) -> RequestData:
+        """get_tick method"""
         path, params, extra = self._get_tick(symbol, extra_data, **kwargs)
         return self.request(path, params, extra_data=extra)
 
     async def async_get_tick(
         self, symbol: Any, extra_data: Any = None, **kwargs: Any
     ) -> RequestData:
+        """async_get_tick method"""
         path, params, extra = self._get_tick(symbol, extra_data, **kwargs)
         return await self.async_request(path, params, extra_data=extra)
 
@@ -30,52 +35,62 @@ class IndependentReserveRequestDataSpot(IndependentReserveRequestData):
     def get_depth(
         self, symbol: Any, count: int = 20, extra_data: Any = None, **kwargs: Any
     ) -> RequestData:
+        """get_depth method"""
         path, params, extra = self._get_depth(symbol, extra_data, count=count, **kwargs)
         return self.request(path, params, extra_data=extra)
 
     async def async_get_depth(
         self, symbol: Any, count: int = 20, extra_data: Any = None, **kwargs: Any
     ) -> RequestData:
+        """async_get_depth method"""
         path, params, extra = self._get_depth(symbol, extra_data, count=count, **kwargs)
         return await self.async_request(path, params, extra_data=extra)
 
     def get_exchange_info(self, extra_data: Any = None, **kwargs: Any) -> RequestData:
+        """get_exchange_info method"""
         path, params, extra = self._get_exchange_info(extra_data, **kwargs)
         return self.request(path, params, extra_data=extra)
 
     async def async_get_exchange_info(self, extra_data: Any = None, **kwargs: Any) -> RequestData:
+        """async_get_exchange_info method"""
         path, params, extra = self._get_exchange_info(extra_data, **kwargs)
         return await self.async_request(path, params, extra_data=extra)
 
     def get_balance(self, symbol: Any = None, extra_data: Any = None, **kwargs: Any) -> RequestData:
+        """get_balance method"""
         path, params, extra = self._get_balance(extra_data, **kwargs)
         return self.request(path, params, extra_data=extra)
 
     async def async_get_balance(
         self, symbol: Any = None, extra_data: Any = None, **kwargs: Any
     ) -> RequestData:
+        """async_get_balance method"""
         path, params, extra = self._get_balance(extra_data, **kwargs)
         return await self.async_request(path, params, extra_data=extra)
 
     def get_account(self, symbol: Any = None, extra_data: Any = None, **kwargs: Any) -> RequestData:
+        """get_account method"""
         path, params, extra = self._get_account(extra_data, **kwargs)
         return self.request(path, params, extra_data=extra)
 
     async def async_get_account(
         self, symbol: Any = None, extra_data: Any = None, **kwargs: Any
     ) -> RequestData:
+        """async_get_account method"""
         path, params, extra = self._get_account(extra_data, **kwargs)
         return await self.async_request(path, params, extra_data=extra)
 
     def get_open_orders(
         self, symbol: Any = None, extra_data: Any = None, **kwargs: Any
     ) -> RequestData:
+        """get_open_orders method"""
         path, params, extra = self._get_open_orders(symbol, extra_data, **kwargs)
         return self.request(path, params, extra_data=extra)
 
     async def async_get_open_orders(
         self, symbol: Any = None, extra_data: Any = None, **kwargs: Any
     ) -> RequestData:
+        """async_get_open_orders method"""
         path, params, extra = self._get_open_orders(symbol, extra_data, **kwargs)
         return await self.async_request(path, params, extra_data=extra)
 
@@ -91,6 +106,7 @@ class IndependentReserveRequestDataSpot(IndependentReserveRequestData):
         extra_data: Any = None,
         **kwargs: Any,
     ) -> RequestData:
+        """make_order method"""
         side = "buy" if "buy" in str(order_type).lower() else "sell"
         path, params, extra = self._make_order(
             symbol, side, order_type, volume, price, extra_data, **kwargs
@@ -109,6 +125,7 @@ class IndependentReserveRequestDataSpot(IndependentReserveRequestData):
         extra_data: Any = None,
         **kwargs: Any,
     ) -> RequestData:
+        """async_make_order method"""
         side = "buy" if "buy" in str(order_type).lower() else "sell"
         path, params, extra = self._make_order(
             symbol, side, order_type, volume, price, extra_data, **kwargs
@@ -118,11 +135,13 @@ class IndependentReserveRequestDataSpot(IndependentReserveRequestData):
     def cancel_order(
         self, symbol: Any, order_id: Any = None, extra_data: Any = None, **kwargs: Any
     ) -> RequestData:
+        """cancel_order method"""
         path, params, extra = self._cancel_order(order_id, extra_data, **kwargs)
         return self.request(path, params, extra_data=extra)
 
     async def async_cancel_order(
         self, symbol: Any, order_id: Any = None, extra_data: Any = None, **kwargs: Any
     ) -> RequestData:
+        """async_cancel_order method"""
         path, params, extra = self._cancel_order(order_id, extra_data, **kwargs)
         return await self.async_request(path, params, extra_data=extra)

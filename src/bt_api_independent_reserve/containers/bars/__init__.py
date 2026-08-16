@@ -1,3 +1,4 @@
+"""Module-level docstring."""
 from __future__ import annotations
 
 import json
@@ -9,6 +10,7 @@ from bt_api_base.functions.utils import from_dict_get_float
 
 
 class IndependentReserveBarData(BarData):
+    """Class IndependentReserveBarData"""
     def __init__(
         self,
         bar_info: str | dict[str, Any],
@@ -16,6 +18,7 @@ class IndependentReserveBarData(BarData):
         asset_type: str,
         has_been_json_encoded: bool = False,
     ) -> None:
+        """__init__ method"""
         super().__init__(bar_info, has_been_json_encoded)
         self.exchange_name = "INDEPENDENT_RESERVE"
         self.local_update_time = time.time()
@@ -33,6 +36,7 @@ class IndependentReserveBarData(BarData):
         self.has_been_init_data = False
 
     def init_data(self) -> "IndependentReserveBarData":
+        """init_data method"""
         if not self.has_been_json_encoded:
             self.bar_data = json.loads(self.bar_info) if isinstance(self.bar_info, str) else {}
             self.has_been_json_encoded = True
@@ -61,42 +65,53 @@ class IndependentReserveBarData(BarData):
         return self
 
     def get_exchange_name(self) -> str:
+        """get_exchange_name method"""
         return self.exchange_name or ""
 
     def get_symbol_name(self) -> str:
+        """get_symbol_name method"""
         return self.symbol_name or ""
 
     def get_asset_type(self) -> str:
+        """get_asset_type method"""
         return self.asset_type or ""
 
     def get_open_time(self) -> float | int:
+        """get_open_time method"""
         self.init_data()
         return self.open_time or 0
 
     def get_open_price(self) -> float | int:
+        """get_open_price method"""
         self.init_data()
         return self.open_price or 0.0
 
     def get_high_price(self) -> float | int:
+        """get_high_price method"""
         self.init_data()
         return self.high_price or 0.0
 
     def get_low_price(self) -> float | int:
+        """get_low_price method"""
         self.init_data()
         return self.low_price or 0.0
 
     def get_close_price(self) -> float | int:
+        """get_close_price method"""
         self.init_data()
         return self.close_price or 0.0
 
     def get_volume(self) -> float | int:
+        """get_volume method"""
         self.init_data()
         return self.volume or 0.0
 
 
 class IndependentReserveRequestBarData(IndependentReserveBarData):
+    """Class IndependentReserveRequestBarData"""
     pass
 
 
 class IndependentReserveWssBarData(IndependentReserveBarData):
+    """Class IndependentReserveWssBarData"""
     pass

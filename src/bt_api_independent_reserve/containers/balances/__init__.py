@@ -1,3 +1,4 @@
+"""Module-level docstring."""
 from __future__ import annotations
 
 import json
@@ -9,12 +10,14 @@ from bt_api_base.functions.utils import from_dict_get_float, from_dict_get_strin
 
 
 class IndependentReserveBalanceData(BalanceData):
+    """Class IndependentReserveBalanceData"""
     def __init__(
         self,
         balance_info: Any,
         asset_type: str = "SPOT",
         has_been_json_encoded: bool = False,
     ) -> None:
+        """__init__ method"""
         super().__init__(balance_info, has_been_json_encoded)
         self.exchange_name = "INDEPENDENT_RESERVE"
         self.asset_type = asset_type
@@ -27,6 +30,7 @@ class IndependentReserveBalanceData(BalanceData):
         self.has_been_init_data = False
 
     def init_data(self) -> "IndependentReserveBalanceData":
+        """init_data method"""
         if not self.has_been_json_encoded:
             self.balance_data = (
                 json.loads(self.balance_info) if isinstance(self.balance_info, str) else {}
@@ -46,6 +50,7 @@ class IndependentReserveBalanceData(BalanceData):
         return self
 
     def get_all_data(self) -> dict[str, Any]:
+        """get_all_data method"""
         if self.all_data is None:
             self.init_data()
             self.all_data = {
@@ -67,33 +72,43 @@ class IndependentReserveBalanceData(BalanceData):
         return self.__str__()
 
     def get_exchange_name(self) -> str:
+        """get_exchange_name method"""
         return self.exchange_name
 
     def get_local_update_time(self) -> float:
+        """get_local_update_time method"""
         return float(self.local_update_time)
 
     def get_asset_type(self) -> str:
+        """get_asset_type method"""
         return self.asset_type
 
     def get_currency(self) -> str | None:
+        """get_currency method"""
         return self.currency
 
     def get_available(self) -> float | None:
+        """get_available method"""
         return self.available
 
     def get_locked(self) -> float | None:
+        """get_locked method"""
         return self.locked
 
     def get_total(self) -> float:
+        """get_total method"""
         return (self.available or 0.0) + (self.locked or 0.0)
 
     def is_zero_balance(self) -> bool:
+        """is_zero_balance method"""
         return not (self.available and self.available > 0) and not (self.locked and self.locked > 0)
 
 
 class IndependentReserveRequestBalanceData(IndependentReserveBalanceData):
+    """Class IndependentReserveRequestBalanceData"""
     pass
 
 
 class IndependentReserveWssBalanceData(IndependentReserveBalanceData):
+    """Class IndependentReserveWssBalanceData"""
     pass

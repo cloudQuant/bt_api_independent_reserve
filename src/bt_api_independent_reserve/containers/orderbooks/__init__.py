@@ -1,3 +1,4 @@
+"""Module-level docstring."""
 from __future__ import annotations
 
 import json
@@ -9,6 +10,7 @@ from bt_api_base.functions.utils import from_dict_get_float
 
 
 class IndependentReserveOrderBookData(OrderBookData):
+    """Class IndependentReserveOrderBookData"""
     def __init__(
         self,
         orderbook_info: str | dict[str, Any],
@@ -16,6 +18,7 @@ class IndependentReserveOrderBookData(OrderBookData):
         asset_type: str,
         has_been_json_encoded: bool = False,
     ) -> None:
+        """__init__ method"""
         super().__init__(orderbook_info, has_been_json_encoded)
         self.exchange_name = "INDEPENDENT_RESERVE"
         self.local_update_time = time.time()
@@ -29,6 +32,7 @@ class IndependentReserveOrderBookData(OrderBookData):
         self.has_been_init_data = False
 
     def init_data(self) -> "IndependentReserveOrderBookData":
+        """init_data method"""
         if not self.has_been_json_encoded:
             self.orderbook_data = (
                 json.loads(self.orderbook_info) if isinstance(self.orderbook_info, str) else {}
@@ -60,29 +64,37 @@ class IndependentReserveOrderBookData(OrderBookData):
         return self
 
     def get_exchange_name(self) -> str:
+        """get_exchange_name method"""
         return self.exchange_name or ""
 
     def get_symbol_name(self) -> str:
+        """get_symbol_name method"""
         return self.symbol_name or ""
 
     def get_asset_type(self) -> str:
+        """get_asset_type method"""
         return self.asset_type or ""
 
     def get_bids(self) -> list[list[float]]:
+        """get_bids method"""
         self.init_data()
         return self.bids or []
 
     def get_asks(self) -> list[list[float]]:
+        """get_asks method"""
         self.init_data()
         return self.asks or []
 
     def get_local_update_time(self) -> float:
+        """get_local_update_time method"""
         return float(self.local_update_time or 0.0)
 
 
 class IndependentReserveRequestOrderBookData(IndependentReserveOrderBookData):
+    """Class IndependentReserveRequestOrderBookData"""
     pass
 
 
 class IndependentReserveWssOrderBookData(IndependentReserveOrderBookData):
+    """Class IndependentReserveWssOrderBookData"""
     pass

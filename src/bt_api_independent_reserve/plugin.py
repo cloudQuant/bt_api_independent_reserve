@@ -1,3 +1,4 @@
+"""Module-level docstring."""
 from __future__ import annotations
 
 from bt_api_base.gateway.registrar import GatewayRuntimeRegistrar
@@ -11,6 +12,7 @@ from bt_api_independent_reserve.registry_registration import register_independen
 def register_plugin(
     registry: type[ExchangeRegistry], runtime_factory: type[GatewayRuntimeRegistrar]
 ) -> PluginInfo:
+    """register_plugin function"""
     register_independent_reserve(registry)
     return PluginInfo(
         name="bt_api_independent_reserve",
