@@ -1,4 +1,5 @@
 """Module-level docstring."""
+
 from __future__ import annotations
 
 import json
@@ -10,6 +11,7 @@ from bt_api_base.containers.accounts.account import AccountData
 
 class IndependentReserveAccountData(AccountData):
     """Class IndependentReserveAccountData"""
+
     def __init__(
         self,
         account_info: str | dict[str, Any],
@@ -85,9 +87,11 @@ class IndependentReserveAccountData(AccountData):
 
 class IndependentReserveRequestAccountData(IndependentReserveAccountData):
     """Class IndependentReserveRequestAccountData"""
+
     pass
 
 
 class IndependentReserveWssAccountData(IndependentReserveAccountData):
     """Class IndependentReserveWssAccountData"""
+
     pass

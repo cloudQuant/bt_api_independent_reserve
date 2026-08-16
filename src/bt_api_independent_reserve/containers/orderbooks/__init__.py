@@ -1,4 +1,5 @@
 """Module-level docstring."""
+
 from __future__ import annotations
 
 import json
@@ -11,6 +12,7 @@ from bt_api_base.functions.utils import from_dict_get_float
 
 class IndependentReserveOrderBookData(OrderBookData):
     """Class IndependentReserveOrderBookData"""
+
     def __init__(
         self,
         orderbook_info: str | dict[str, Any],
@@ -90,9 +92,11 @@ class IndependentReserveOrderBookData(OrderBookData):
 
 class IndependentReserveRequestOrderBookData(IndependentReserveOrderBookData):
     """Class IndependentReserveRequestOrderBookData"""
+
     pass
 
 
 class IndependentReserveWssOrderBookData(IndependentReserveOrderBookData):
     """Class IndependentReserveWssOrderBookData"""
+
     pass

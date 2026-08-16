@@ -1,4 +1,5 @@
 """Module documentation"""
+
 from __future__ import annotations
 
 import hashlib
@@ -16,6 +17,7 @@ from bt_api_independent_reserve.exchange_data import IndependentReserveExchangeD
 
 class IndependentReserveRequestData(Feed):
     """Class IndependentReserveRequestData"""
+
     @classmethod
     def _capabilities(cls) -> set[Capability]:
         return {

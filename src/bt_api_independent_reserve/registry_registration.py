@@ -1,4 +1,5 @@
 """Module-level docstring."""
+
 from __future__ import annotations
 
 from bt_api_base.balance_utils import simple_balance_handler as _independent_reserve_balance_handler

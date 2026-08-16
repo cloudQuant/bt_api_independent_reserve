@@ -1,4 +1,5 @@
 """Module-level docstring."""
+
 from __future__ import annotations
 
 import json
@@ -11,6 +12,7 @@ from bt_api_base.functions.utils import from_dict_get_float, from_dict_get_strin
 
 class IndependentReserveBalanceData(BalanceData):
     """Class IndependentReserveBalanceData"""
+
     def __init__(
         self,
         balance_info: Any,
@@ -104,9 +106,11 @@ class IndependentReserveBalanceData(BalanceData):
 
 class IndependentReserveRequestBalanceData(IndependentReserveBalanceData):
     """Class IndependentReserveRequestBalanceData"""
+
     pass
 
 
 class IndependentReserveWssBalanceData(IndependentReserveBalanceData):
     """Class IndependentReserveWssBalanceData"""
+
     pass

@@ -1,4 +1,5 @@
 """Module-level docstring."""
+
 from __future__ import annotations
 
 from bt_api_base.containers.exchanges.exchange_data import ExchangeData
@@ -45,6 +46,7 @@ _FALLBACK_REST_PATHS = {
 
 class IndependentReserveExchangeData(ExchangeData):
     """Class IndependentReserveExchangeData"""
+
     def __init__(self) -> None:
         """__init__ method"""
         super().__init__()
@@ -89,6 +91,7 @@ class IndependentReserveExchangeData(ExchangeData):
 
 class IndependentReserveExchangeDataSpot(IndependentReserveExchangeData):
     """Class IndependentReserveExchangeDataSpot"""
+
     def __init__(self) -> None:
         """__init__ method"""
         super().__init__()

@@ -1,4 +1,5 @@
 """Module documentation"""
+
 from __future__ import annotations
 
 from typing import Any
@@ -8,6 +9,7 @@ from bt_api_base.error import ErrorCategory, ErrorTranslator, UnifiedError, Unif
 
 class IndependentReserveErrorTranslator(ErrorTranslator):
     """Class IndependentReserveErrorTranslator"""
+
     @classmethod
     def translate(cls, raw_error: dict[str, Any], venue: str) -> UnifiedError | None:
         """translate method"""

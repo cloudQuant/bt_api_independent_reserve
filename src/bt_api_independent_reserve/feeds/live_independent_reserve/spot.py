@@ -1,4 +1,5 @@
 """Module-level docstring."""
+
 from __future__ import annotations
 
 from typing import Any
@@ -12,6 +13,7 @@ from bt_api_independent_reserve.feeds.live_independent_reserve.request_base impo
 
 class IndependentReserveRequestDataSpot(IndependentReserveRequestData):
     """Class IndependentReserveRequestDataSpot"""
+
     def __init__(self, data_queue: Any = None, **kwargs: Any) -> None:
         """__init__ method"""
         kwargs.setdefault("exchange_name", "INDEPENDENT_RESERVE___SPOT")
